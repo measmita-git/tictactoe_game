@@ -10,7 +10,13 @@ class HomePageSCreen extends StatefulWidget {
 }
 
 class _HomePAgeSCreenState extends State<HomePageSCreen> {
-  // String? displayExOh;
+  void _tapped() {
+    setState(() {
+      displayExOh = 'o';
+    });
+  }
+
+  String displayExOh = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,12 +26,18 @@ class _HomePAgeSCreenState extends State<HomePageSCreen> {
             gridDelegate:
                 SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
             itemBuilder: (BuildContext context, int index) {
-              return Container(
-                child: Center(
-                  child: Text(
-                    index.toString(),
-                    style: TextStyle(
-                      color: Colors.grey[700],
+              return GestureDetector(
+                onTap: _tapped,
+                child: Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.red),
+                  ),
+                  child: Center(
+                    child: Text(
+                      displayExOh,
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),
